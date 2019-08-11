@@ -30,3 +30,21 @@
   flex-grow: 1;
   border: 0;
 }
+
+@media (max-width: 575px) {
+  .NewToDoForm-input-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .NewToDoForm-input {
+    padding: 1rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .NewToDoForm-button {
+    padding: 1rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
