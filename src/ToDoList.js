@@ -7,20 +7,32 @@ class ToDoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDos: []
+      toDos: [
+        {
+          toDo: 'Buy milk'
+        },
+        {
+          toDo: 'Call Bob'
+        },
+        {
+          toDo: 'Get gas'
+        }
+      ]
     };
   }
 
   renderToDos() {
-    this.state.toDos.map(toDo => (
+    return this.state.toDos.map(toDo => (
       <ToDo toDo={toDo.toDo} />
     ));
   }
   render() {
     return (
       <div className="ToDoList">
-        <h1 className="ToDoList-title">To Do List</h1>
-        <ToDo />
+        <h1 className="ToDoList-title">To-do List</h1>
+        <ul className="ToDoList-list">
+          {this.renderToDos()}
+        </ul>
         <NewToDoForm />
       </div>
     )

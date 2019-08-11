@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './ToDo.css';
 
 class ToDo extends Component {
   static defaultProps = {
@@ -6,9 +7,9 @@ class ToDo extends Component {
   }
   render() {
     return (
-      <div className="ToDo">
+      <li className="ToDo">
         {this.props.toDo}
-      </div>
+      </li>
     )
   }
 }
