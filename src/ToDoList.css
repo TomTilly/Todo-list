@@ -1,7 +1,7 @@
 .ToDoList {
   background: rgb(243, 243, 243);
   box-shadow: 15px 15px 0 rgba(0,0,0,0.1);
-  min-width: 40%;
+  min-width: 30%;
 }
 
 .ToDoList-title {

@@ -3,4 +3,17 @@
   background: rgba(0, 0, 0, 0.082);
   margin-bottom: 2px;
   font-weight: bold;
+  display: flex;
+}
+
+.ToDo-item {
+  flex: 10;
+}
+
+.ToDo-button {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #FF7C64;
 }
