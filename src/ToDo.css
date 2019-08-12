@@ -1,7 +1,7 @@
 .ToDo {
   padding: 1em 3em;
   background: rgba(0, 0, 0, 0.082);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   font-weight: bold;
   display: flex;
 }
@@ -16,4 +16,16 @@
   border: none;
   font-size: 1rem;
   color: #FF7C64;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.ToDo-button:hover {
+  color: rgb(255, 91, 62);
+}
+
+.ToDo-button > * {
+  /* when clicking buttons, we want the buttons to be the target,
+  not the svgs inside them */
+  pointer-events: none;
 }
