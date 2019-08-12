@@ -3,6 +3,9 @@
   background: rgba(0, 0, 0, 0.082);
   margin-bottom: 4px;
   font-weight: bold;
+}
+
+.ToDo-inner-container {
   display: flex;
 }
 
@@ -28,4 +31,26 @@
   /* when clicking buttons, we want the buttons to be the target,
   not the svgs inside them */
   pointer-events: none;
+}
+
+.ToDo-inline-input-container {
+  display: flex;
+}
+
+.ToDo-inline-input {
+  padding: 1rem;
+  flex: 10;
+  font-size: 1rem;
+}
+
+.ToDo-inline-save-button {
+  flex-grow: 2;
+  background-color: #FF7D64;
+  color: white;
+  text-transform: uppercase;
+  font-size: .8rem;
+  flex-grow: 1;
+  border: 0;
+  transition: background-color .4s;
+  cursor: pointer;
 }

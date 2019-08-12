@@ -43,7 +43,7 @@ class NewToDoForm extends Component {
           <button className="NewToDoForm-button">Add to-do</button>
         </div>
       </form>
-    )
+    );
   }
 }
 
