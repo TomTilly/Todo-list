@@ -8,20 +8,7 @@ class ToDoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toDos: [
-        {
-          toDo: 'Buy milk',
-          id: uuid()
-        },
-        {
-          toDo: 'Call Bob',
-          id: uuid()
-        },
-        {
-          toDo: 'Get gas',
-          id: uuid()
-        }
-      ]
+      toDos: JSON.parse(localStorage.getItem('toDos')) || []
     };
     this.addToDo = this.addToDo.bind(this);
     this.deleteToDo = this.deleteToDo.bind(this);
@@ -29,23 +16,37 @@ class ToDoList extends Component {
   }
 
   addToDo(newToDo) {
-    this.setState(curState => ({ toDos: [...curState.toDos, newToDo] }));
+    this.setState(curState => {
+      const newToDos = [...curState.toDos, newToDo];
+      localStorage.setItem('toDos', JSON.stringify(newToDos));
+      return {
+        toDos: newToDos
+      };
+    });
   }
 
   deleteToDo(id) {
-    this.setState(curState => ({ toDos: curState.toDos.filter(toDo => toDo.id !== id) }));
+    this.setState(curState => {
+      const newToDos = curState.toDos.filter(toDo => toDo.id !== id);
+      localStorage.setItem('toDos', JSON.stringify(newToDos));
+      return {
+        toDos: newToDos
+      }
+    });
   }
 
   editToDo(id, newValue) {
     this.setState(curState => {
-      return {
-        toDos: curState.toDos.map(toDo => {
-          if (toDo.id === id) {
-            toDo.toDo = newValue;
-            return toDo;
-          }
+      const newToDos = curState.toDos.map(toDo => {
+        if (toDo.id === id) {
+          toDo.toDo = newValue;
           return toDo;
-        })
+        }
+        return toDo;
+      });
+      localStorage.setItem('toDos', JSON.stringify(newToDos));
+      return {
+        toDos: newToDos
       };
     });
   }

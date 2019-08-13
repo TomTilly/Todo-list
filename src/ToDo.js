@@ -11,22 +11,25 @@ class ToDo extends Component {
     super(props);
     this.state = {
       isEditting: false,
-      toDo: this.props.toDo
+      toDo: this.props.toDo,
+      markedDone: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleClick(e) {
     if (e.target.dataset.type === 'edit') {
       // edit item
-      console.log('edit');
       this.setState({ isEditting: true });
 
-    } else {
+    } else if (e.target.dataset.type === 'delete') {
       // remove item
-      console.log('delete');
       this.props.delete(this.props.id);
+    } else {
+      console.log(e.target);
+      this.setState(curState => ({ markedDone: !curState.markedDone }));
     }
   }
 
@@ -45,7 +48,7 @@ class ToDo extends Component {
       <li className="ToDo">
         {!this.state.isEditting
           ?
-          <div className="ToDo-inner-container">
+          <div className={`ToDo-inner-container ${this.state.markedDone ? 'done' : ''}`} onClick={this.handleClick}>
             <span className="ToDo-item">{this.props.toDo}</span>
             <button className="ToDo-button" data-type="edit" onClick={this.handleClick}>
               <FontAwesomeIcon icon={faEdit} />

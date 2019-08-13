@@ -1,12 +1,16 @@
-.ToDo {
+.ToDo-inner-container {
+  display: flex;
   padding: 1em 3em;
   background: rgba(0, 0, 0, 0.082);
   margin-bottom: 4px;
   font-weight: bold;
+  cursor: pointer;
+  transition: all .3s;
 }
 
-.ToDo-inner-container {
-  display: flex;
+.done {
+  text-decoration: line-through;
+  background: rgba(0, 0, 0, 0.233);
 }
 
 .ToDo-item {
@@ -31,6 +35,13 @@
   /* when clicking buttons, we want the buttons to be the target,
   not the svgs inside them */
   pointer-events: none;
+}
+
+.ToDo-inline-edit-form {
+  padding: 1em 3em;
+  background: rgba(0, 0, 0, 0.082);
+  margin-bottom: 4px;
+  font-weight: bold;
 }
 
 .ToDo-inline-input-container {
